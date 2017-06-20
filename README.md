@@ -1,4 +1,6 @@
-# liunx常用命令
+# liunx学习笔记
+
+# 一、linux常用命令
 
 ##  ls
 查看当前目录下的文件夹及文件信息
@@ -178,10 +180,287 @@ mv a/* c
 -v 显示移动的速度
 
 ## tar
-打包、压缩文件
+打包、压缩文件、解压文件
 
 //打包当前文件打包为test.tar
 ```linux
 tar -cvf test.tar ./*
 ```
+
+//解压文件
+
+```
+tar -xvf my.tar
+```
+
+打包并压缩d文件夹的内容
+ ```
+ tar -zcvf test.tar.gz d
+ ```
+
+解压gz文件
+
+```
+tar -zxvf test.tar.gz
+```
+
+
+
+
+
+
+## gzip
+1、压缩打包好的文件
+
+//将tar文件压缩，建议使用.gz结尾
+```
+gzip my.tar my.tar.gz
+```
+
+
+2、解压缩包为包
+
+```
+gzip -d my.tar.gz
+```
+
+## zip
+压缩文件
+
+压缩d文件夹为demo.zip
+```java
+zip demo.zip d
+```
+
+## unzip
+解压缩
+
+//解压压缩包到指定目录（b文件夹）
+```java
+unzip -d ./b dmeo.zip
+```
+
+## which
+查看命令位置
+```java
+hdl@hdl:~/桌面$ which ls
+/bin/ls
+```
+
+# linux用户、权限管理
+
+## who
+查看当前所有登录的用户
+-q 查看有多少个用户登录
+
+## whoami
+查看当前用户
+
+## exit
+退出当前登录的账户
+
+
+## ifconfig
+查看ip地址
+```java
+root@hdl:/home/hdl/桌面# ifconfig | grep -n 192.*
+18:          inet 地址:192.168.1.5  广播:192.168.1.255  掩码:255.255.255.0
+
+```
+
+## ping
+测试网络是否通畅
+
+## ssh
+远程登录linux
+
+格式： ssh 用户名@ip地址
+
+## useradd
+也可以用useradd的链接adduser
+
+-m 自动建立目录
+
+-d 指定home的目录
+
+-g 指定组名称
+
+//创建tj用户 并指定home目录
+```
+sudo useradd tj -m -d /home/tj
+```
+
+
+//为新建的用户添加sudo权限
+```
+sudo usermod -a -G adm username
+sudo usermod -a -G sudo username
+```
+
+## passwd
+设置、修改密码
+```
+sudo passwd tj
+```
+输入密码
+
+## su
+
+切换到指定用户（会停在但前文件夹）
+```
+su 用户名
+```
+
+//会跳转到指定账户的home目录
+
+```
+su - 用户名
+```
+
+## sudo
+申请root权限
+
+//切换到root用户
+```
+sudo -s
+```
+
+## userdel
+
+删除用户
+
+//不会删除对应的文件夹
+```
+userdel 用户名
+```
+
+//会删除相应的文件夹
+```
+userdel -r 用户名
+```
+
+## groupadd
+>查看组：cat /etc/group
+
+创建用户组haha
+```
+sudo groupadd haha
+```
+
+## grouddel
+删除组
+```
+sudo grouddel haha
+```
+
+## groups
+查看当前用户所在的组
+
+## usermod
+修改用户所在的组(设置默认的组)
+```
+sudo usermod -g 用户组名 用户名
+```
+
+//添加组
+```
+sudo usermod -a -G 用户组名 用户名
+```
+
+//为新建的用户添加sudo权限
+```
+sudo usermod -a -G adm username
+sudo usermod -a -G sudo username
+```
+
+## drwxrwxrwx的权限说明
+参数说明：
+- d 文件夹
+- \- 文件/无权限
+- r 读取权限
+- w 写权限
+- x 执行权限
+
+第一位：区分文件还是文件夹
+
+第一个rwx：表示但前用户权限
+
+第二个rwx：表示与但前用户所在同一个组的用户的权限
+
+第三个rwx：表示组外用户权限
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
