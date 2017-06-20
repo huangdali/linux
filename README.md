@@ -74,7 +74,8 @@
 
 ## tree
 以树的形式显示当前文件夹的目录树（可看文件目录结构）
-```java.
+```java
+.
 ├── 01.py
 ├── 1.txt
 ├── a
@@ -83,14 +84,18 @@
 ├── linux_note.txt
 ├── print.txt
 └── python
-```java
+```
 
 > 后面可以跟对应的目录，表示查看指定目录的目录树
 
 ## cat
 查看文件内容
 
-cat 1.txt 2.txt 合并两个文件内容并输出
+合并两个文件内容并输出
+```java
+cat 1.txt 2.txt
+```
+
 
 cat支持 \>重定向
 
@@ -105,7 +110,7 @@ sgasg
 asgag
 ahgag
 
-```java
+```
 
 -n表示显示行号
 ```java
@@ -115,9 +120,10 @@ hdl@hdl:~/桌面$ grep -n 'a' haha.txt
 25:sgasg
 29:asgag
 32:ahgag
-```java
+```
 
 -i 表示忽略大小写
+
 -v 表示取反
 
 正则表达式：^a（以a开头的）
@@ -131,6 +137,7 @@ hdl@hdl:~/桌面$ grep -n 'a' haha.txt
 同上
 
 man ls 查看ls的帮助文档
+
 man print 查看c语言中print函数的帮助文档
 
 ## history
@@ -144,12 +151,13 @@ man print 查看c语言中print函数的帮助文档
 hdl@hdl:~/桌面$ find -name '0*'
 ./01.py
 
-```java
+```
 
 
 查找指定文件夹下的文件(下面表示查找根目录下的所有以.txt结尾的文件)
-
+```java
 find / -name '*.txt'
+```
 
 ## cp
 复制文件
@@ -183,46 +191,40 @@ mv a/* c
 打包、压缩文件、解压文件
 
 //打包当前文件打包为test.tar
-```javalinux
-tar -cvf test.tar ./*
 ```java
+tar -cvf test.tar ./*
+```
 
 //解压文件
 
 ```java
 tar -xvf my.tar
-```java
+```
 
 打包并压缩d文件夹的内容
  ```java
  tar -zcvf test.tar.gz d
- ```java
+ ```
 
 解压gz文件
 
 ```java
 tar -zxvf test.tar.gz
-```java
-
-
-
-
-
-
+```
 ## gzip
 1、压缩打包好的文件
 
 //将tar文件压缩，建议使用.gz结尾
 ```java
 gzip my.tar my.tar.gz
-```java
+```
 
 
 2、解压缩包为包
 
 ```java
 gzip -d my.tar.gz
-```java
+```
 
 ## zip
 压缩文件
@@ -230,7 +232,7 @@ gzip -d my.tar.gz
 压缩d文件夹为demo.zip
 ```java
 zip demo.zip d
-```java
+```
 
 ## unzip
 解压缩
@@ -238,14 +240,14 @@ zip demo.zip d
 //解压压缩包到指定目录（b文件夹）
 ```java
 unzip -d ./b dmeo.zip
-```java
+```
 
 ## which
 查看命令位置
 ```java
 hdl@hdl:~/桌面$ which ls
 /bin/ls
-```java
+```
 
 # linux用户、权限管理
 
@@ -266,7 +268,7 @@ hdl@hdl:~/桌面$ which ls
 root@hdl:/home/hdl/桌面# ifconfig | grep -n 192.*
 18:          inet 地址:192.168.1.5  广播:192.168.1.255  掩码:255.255.255.0
 
-```java
+```
 
 ## ping
 测试网络是否通畅
@@ -288,20 +290,20 @@ root@hdl:/home/hdl/桌面# ifconfig | grep -n 192.*
 //创建tj用户 并指定home目录
 ```java
 sudo useradd tj -m -d /home/tj
-```java
+```
 
 
 //为新建的用户添加sudo权限
 ```java
 sudo usermod -a -G adm username
 sudo usermod -a -G sudo username
-```java
+```
 
 ## passwd
 设置、修改密码
 ```java
 sudo passwd tj
-```java
+```
 输入密码
 
 ## su
@@ -309,13 +311,13 @@ sudo passwd tj
 切换到指定用户（会停在但前文件夹）
 ```java
 su 用户名
-```java
+```
 
 //会跳转到指定账户的home目录
 
 ```java
 su - 用户名
-```java
+```
 
 ## sudo
 申请root权限
@@ -323,7 +325,7 @@ su - 用户名
 //切换到root用户
 ```java
 sudo -s
-```java
+```
 
 ## userdel
 
@@ -332,12 +334,12 @@ sudo -s
 //不会删除对应的文件夹
 ```java
 userdel 用户名
-```java
+```
 
 //会删除相应的文件夹
 ```java
 userdel -r 用户名
-```java
+```
 
 ## groupadd
 >查看组：cat /etc/group
@@ -345,13 +347,13 @@ userdel -r 用户名
 创建用户组haha
 ```java
 sudo groupadd haha
-```java
+```
 
 ## grouddel
 删除组
 ```java
 sudo grouddel haha
-```java
+```
 
 ## groups
 查看当前用户所在的组
@@ -360,18 +362,18 @@ sudo grouddel haha
 修改用户所在的组(设置默认的组)
 ```java
 sudo usermod -g 用户组名 用户名
-```java
+```
 
 //添加组
 ```java
 sudo usermod -a -G 用户组名 用户名
-```java
+```
 
 //为新建的用户添加sudo权限
 ```java
 sudo usermod -a -G adm username
 sudo usermod -a -G sudo username
-```java
+```
 
 ## drwxrwxrwx的权限说明
 参数说明：
