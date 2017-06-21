@@ -379,9 +379,9 @@ sudo usermod -a -G sudo username
 参数说明：
 - d 文件夹
 - \- 文件/无权限
-- r 读取权限
-- w 写权限
-- x 执行权限
+- r 读取权限 ---->4
+- w 写权限  ---->2
+- x 执行权限 ---->1
 
 第一位：区分文件还是文件夹
 
@@ -391,16 +391,88 @@ sudo usermod -a -G sudo username
 
 第三个rwx：表示组外用户权限
 
+## chmod
+权限设置
 
+```java
+chmod u/g/o/a +/-/= rwx 文件名
+```
 
+参数说明：
 
+- u 该文件的拥有者
+- g 该文件下的所有组成员
+- o 其他用户
+- a 所有用户
+- \+ 增加权限
+- \- 撤销权限
+- = 设定权限
 
+eg:
+```java
+hdl@hdl:~/桌面/b$ chmod u=rw,g=r,o=w 1.txt
+hdl@hdl:~/桌面/b$ ls -l
+总用量 8
+-rw-r---w- 1 hdl hdl    0 6月  21 22:19 1.txt
+drwxrwxr-x 3 hdl hdl 4096 6月  19 23:10 a
+drwxrwxr-x 2 hdl hdl 4096 6月  20 21:36 d
+```
 
+```java
+hdl@hdl:~/桌面/b$ chmod 761 2.sh
+hdl@hdl:~/桌面/b$ ls -alh
+总用量 20K
+drwxrwxr-x 4 hdl  hdl  4.0K 6月  21 22:33 .
+drwxr-xr-x 6 hdl  hdl  4.0K 6月  20 21:46 ..
+-rw-r---w- 1 hdl  hdl     0 6月  21 22:19 1.txt
+-rwxrw---x 1 hdl  hdl     8 6月  21 22:33 2.sh
+drwxrwxr-x 3 hdl  hdl  4.0K 6月  19 23:10 a
+drwxrwxr-x 2 hdl  hdl  4.0K 6月  20 21:36 d
+-rw-r--r-- 1 root root    0 6月  21 22:30 test.sh
+```
+- 7:rwx
+- 6:rw-
+- 1:--x
 
+chmod 777 文件夹，只会修改文件的权限为777,里面的所有文件不变
+         -R 表示文件也变为777
 
+## cal
+查看日历
 
+## date
+查看当前系统时间
 
+## ps
+查看当前系统的进程
 
+```java
+ps aux
+```
+
+## top
+动态查看进程信息（windows中的任务管理器）
+
+## kill
+杀死进程
+
+```java
+kill  pid数
+```
+
+//强制杀死进程
+```java
+kill -9  pid数
+```
+
+## 关机、重启设置
+- reboot 重新启动系统
+- shutdown -r now  重启系统，会提示用户
+- shutdown -h now  马上就关机
+- shutdown -h 20:25 定时关机，20：25的时候会关机
+- shutdown -h +10 10分钟智慧会自动关机
+- init 0 关机
+- init 6 重启
 
 
 
