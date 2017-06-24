@@ -270,8 +270,28 @@ root@hdl:/home/hdl/桌面# ifconfig | grep -n 192.*
 
 ```
 
+禁用网卡
+
+```java
+ifconfig 网卡名（eg:wlp3s0） down
+```
+
+启用网卡
+
+```java
+ifconfig 网卡名（eg:wlp3s0） up
+```
+
+设置ip地址
+```java
+sudo ifconfig 网卡名（eg:wlp3s0） ip地址
+```
+
+
 ## ping
 测试网络是否通畅
+
+会一直ping
 
 ## ssh
 远程登录linux
@@ -470,9 +490,126 @@ kill -9  pid数
 - shutdown -r now  重启系统，会提示用户
 - shutdown -h now  马上就关机
 - shutdown -h 20:25 定时关机，20：25的时候会关机
-- shutdown -h +10 10分钟智慧会自动关机
+- shutdown -h +10 10分钟后会自动关机
 - init 0 关机
 - init 6 重启
+
+
+## df
+查看硬盘空间占用情况，配合-h效果更佳
+```java
+df -h
+```
+
+## du
+查看当前文件夹下的硬盘占用情况，同样配合-h效果更佳
+```java
+du -h
+```
+
+## gedit
+
+文本编辑器
+
+## sublime
+
+## vi
+三种模式
+- 命令模式（默认）
+- 编辑模式
+- 末行模式
+
+命令--》编辑模式  i,a,o
+
+- i 在光标左边插入
+- a 在光标右边插入
+- o 在光标的下方插入
+- I 在行首输入
+- A 在行末插入
+- O 在光标的上一行
+
+编辑--》命令  Esc
+
+
+保存退出：shift +两次z
+
+：q 退出  q! 强制退出
+
+：w 保存
+
+：wq 保存并退出（x也是保存退出）
+
+# vim
+跟vi差不多
+
+ctrl+n代码补全提示
+
+yy 复制  8yy:表示从光标开始复制8行
+
+p粘贴
+
+dd 剪切  8dd：表示光标开始剪切8行
+
+u  撤销
+
+ctrl+r 反撤销
+
+G 跳转到最后一行
+
+14G表示跳转到第15行
+
+gg 跳转到第一行
+
+w 段意
+
+ctrl+b 下一屏
+
+ctrl+e 上一屏
+
+x:上出光标后一个字符，相当于delete
+
+X：表示删除光标前一个字符，相当于Backspace
+
+v:多选
+
+vim 1.pu +22 打开到22行
+
+. 重复执行上一次的命令
+
+r 替换但前的字符
+
+/搜索的内容
+
+将当前文件中的所有abc替换为123
+```java
+：%s/abc/123/g
+```
+
+将当前文件中1-10行的所有abc替换为123
+```java
+：1,10s/abc/123/g
+```
+
+# Ubuntu下载软件
+
+## apt
+更新、下载软件
+
+更新已经安装的服务器
+```java
+apt-get update
+```
+
+下载软件的服务器配置文件路径
+```java
+/etc/apt/sources.list
+```
+
+
+
+
+
+
 
 
 
